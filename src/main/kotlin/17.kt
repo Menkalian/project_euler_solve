@@ -1,8 +1,7 @@
 val digitArr = arrayOf("", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine")
 val tenArr = arrayOf("", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety")
-val hundo = "hundred"
-val thous = "thousand"
-val and = "and"
+const val hundo = "hundred"
+const val and = "and"
 val exeptions = mapOf(
     Pair(11, "eleven"),
     Pair(12, "twelve"),
@@ -25,20 +24,23 @@ fun main() {
 }
 
 fun count(i:Int):Int{
-    if (exeptions.containsKey(i)) {
-        return exeptions[i]?.length!!
-    } else
-        if (i < 10) {
+    when {
+        exeptions.containsKey(i) -> {
+            return exeptions[i]?.length!!
+        }
+        i < 10 -> {
             return digitArr[i].length
-        } else
-            if (i < 100) {
-                return digitArr[i % 10].length + tenArr[i / 10].length
-            } else
-                if (i < 1000) {
-                    var ten = count(i%100)
-                    if(i%100 != 0) ten += and.length
-                    return ten + hundo.length + digitArr[i / 100].length
-                } else {
-                    return "onethousand".length
-                }
+        }
+        i < 100 -> {
+            return digitArr[i % 10].length + tenArr[i / 10].length
+        }
+        i < 1000 -> {
+            var ten = count(i%100)
+            if(i%100 != 0) ten += and.length
+            return ten + hundo.length + digitArr[i / 100].length
+        }
+        else -> {
+            return "onethousand".length
+        }
+    }
 }

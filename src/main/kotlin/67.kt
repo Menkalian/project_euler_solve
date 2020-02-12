@@ -1,6 +1,6 @@
 import kotlin.math.max
 
-val str_67 =    "59\n" +
+const val str_67 =    "59\n" +
                 "73 41\n" +
                 "52 40 09\n" +
                 "26 53 06 34\n" +
@@ -108,7 +108,7 @@ fun main(){
     for ( i in (splits.size -1) downTo 0){
         val values = splits[i].split(" ")
         val tempArray = IntArray(size = values.size)
-        for( j in 0 ..values.size - 1){
+        for( j in values.indices){
             tempArray[j] = Integer.parseInt(values[j]) + max(max_arr[j], max_arr[j+1])
         }
         max_arr = tempArray

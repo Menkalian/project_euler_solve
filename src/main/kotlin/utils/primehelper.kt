@@ -14,17 +14,6 @@ fun getPrimesTill(tar: Long): List<Long> { // Vllt. Erasthosteles ansatz statt 2
     return list
 }
 
-fun isPrime(tar: Long): Boolean {
-    return getPrimesTill(tar).contains(tar)
-}
-
-fun getFactors(tar: Long): List<Long> {
-    val factors = getPrimesTill(tar)
-    if (factors.contains(tar))
-        return listOf(tar)
-    return getFactors(tar, factors)
-}
-
 fun getIthPrime(tar: Long): Long {
     val list: MutableList<Long> = mutableListOf(2)
     var i = 3L
@@ -43,7 +32,7 @@ fun getIthPrime(tar: Long): Long {
 }
 
 class Factorizer {
-    val factors: MutableList<Long> = mutableListOf(2)
+    private val factors: MutableList<Long> = mutableListOf(2)
 
     fun displayFactors(number: Long) {
         if (number == 1L)
@@ -155,17 +144,3 @@ class Factorizer {
     }
 }
 
-private fun getFactors(tar: Long, factors: List<Long>): List<Long> {
-    if (tar == 1L) {
-        return listOf()
-    }
-    for (it in factors) {
-        if (tar % it == 0L) {
-            val toRet = mutableListOf(it)
-            toRet.addAll(getFactors(tar / it, factors))
-            return toRet
-        }
-    }
-    println("1 wurde fehlerhaft(!!!) als Faktor festgestellt!!!")
-    return listOf(1L)
-}

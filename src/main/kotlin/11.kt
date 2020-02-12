@@ -1,6 +1,6 @@
 import kotlin.math.max
 
-val grid = "08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08\n" +
+const val grid = "08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08\n" +
         "49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00\n" +
         "81 49 31 73 55 79 14 29 93 71 40 67 53 88 30 03 49 13 36 65\n" +
         "52 70 95 23 04 60 11 42 69 24 68 56 01 32 56 71 37 02 36 91\n" +
@@ -22,7 +22,7 @@ val grid = "08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08\n" +
         "01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48"
 
 fun main() {
-    val grid_arr = readArray(grid);
+    val grid_arr = readArray(grid)
     var record = Int.MIN_VALUE
     /*
 
@@ -38,14 +38,14 @@ fun main() {
     */
 
     // Test horizontal Products:
-    for(i in 0..grid_arr.size-1)
+    for(i in grid_arr.indices)
         for(j in 0..grid_arr[0].size - 4){
             record = max(record, grid_arr[i][j] *grid_arr[i][j+1]*grid_arr[i][j+2]*grid_arr[i][j+3])
         }
 
     // Test for verticals
     for(i in 0..grid_arr.size-4)
-        for(j in 0..grid_arr[0].size - 1){
+        for(j in grid_arr[0].indices){
             record = max(record, grid_arr[i][j] *grid_arr[i+1][j]*grid_arr[i+2][j]*grid_arr[i+3][j])
         }
 
@@ -57,7 +57,7 @@ fun main() {
 
     // Diagonals to the left
     for(i in 0..grid_arr.size-4)
-        for(j in 3..grid_arr[0].size - 1){
+        for(j in 3 until grid_arr[0].size){
             record = max(record, grid_arr[i][j] *grid_arr[i+1][j-1]*grid_arr[i+2][j-2]*grid_arr[i+3][j-3])
         }
 
@@ -65,14 +65,14 @@ fun main() {
 }
 
 fun readArray(str: String): Array<Array<Int>> {
-    val lines: Array<String> = str.split("\n").toTypedArray();
+    val lines: Array<String> = str.split("\n").toTypedArray()
     val grid = ArrayList<Array<Int>>()
     for (line in lines) {
         val nums = line.split(" ")
         val num_line: Array<Int> = IntArray(size = nums.size).toTypedArray()
-        for (i in 0..nums.size - 1)
+        for (i in nums.indices)
             num_line[i] = Integer.parseInt(nums[i])
-        grid.add(num_line);
+        grid.add(num_line)
     }
     return grid.toTypedArray()
 }

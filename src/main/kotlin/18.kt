@@ -1,6 +1,8 @@
+@file:Suppress("DuplicatedCode")
+
 import kotlin.math.max
 
-val str_18 =    "75\n" +
+const val str_18 =    "75\n" +
                 "95 64\n" +
                 "17 47 82\n" +
                 "18 35 87 10\n" +
@@ -23,7 +25,7 @@ fun main(){
     for ( i in (splits.size -1) downTo 0){
         val values = splits[i].split(" ")
         val tempArray = IntArray(size = values.size)
-        for( j in 0 ..values.size - 1){
+        for( j in values.indices){
             tempArray[j] = Integer.parseInt(values[j]) + max(max_arr[j], max_arr[j+1])
         }
         max_arr = tempArray

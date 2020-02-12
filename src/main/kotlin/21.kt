@@ -26,7 +26,7 @@ fun main(){
 
 fun getDivSum(f:Int):Int{
     var sum = 0
-    for(i in 1..(f-1))
+    for(i in 1 until f)
         if(f%i == 0){
             sum += i
         }

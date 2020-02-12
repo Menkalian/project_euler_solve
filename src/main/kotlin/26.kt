@@ -14,7 +14,7 @@ fun main(){
 
 fun calculateRecurringDepth(i: Int): Int {
     val receivedResults : HashMap<Int, Int> = HashMap()
-    var c : Int = 1
+    var c = 1
     var count = 0
     while(c>0){
         if(c < i){
@@ -26,7 +26,7 @@ fun calculateRecurringDepth(i: Int): Int {
                 // Recurring Pattern found!!!
                 return receivedResults.values.max()?.minus(receivedResults[c]!!)!!
             }
-            receivedResults.put(c, count)
+            receivedResults[c] = count
         }
     }
     return 0

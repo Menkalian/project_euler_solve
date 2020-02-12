@@ -20,17 +20,17 @@ fun numberOfDivisors(triangle: Long): Long {
 
     facList.removeAt(0)
 
-    var map = mutableMapOf<Long,Long>()
+    val map = mutableMapOf<Long,Long>()
 
     for(f in facList){
         if(map.containsKey(f)){
             val g = map[f]?.plus(1)
             if (g != null) {
                 map.remove(f)
-                map.put(f, g)
+                map[f] = g
             }
         }else
-        map.put(f, 1)
+            map[f] = 1
     }
 
     var toRet = 1L
