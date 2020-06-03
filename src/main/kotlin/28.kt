@@ -10,5 +10,5 @@ fun main(){
             sum += curr
         }
     }
-    println(sum.toString(10))
+    println(sum.toString())
 }
