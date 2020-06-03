@@ -28,7 +28,7 @@ public class test {
 ```
 ---
 ### Kilian (Java):
-```
+```java
 import java.math.BigInteger;
 
 public class bigintfak {
