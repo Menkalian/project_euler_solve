@@ -1,6 +1,6 @@
-#Codevergleich zwischen Thomas und mir (Kilian):
+# Codevergleich zwischen Thomas und mir (Kilian):
 
-###Thomas (Java):
+### Thomas (Java):
 ```java
 public class test {
     public static void main(String[] args) {
@@ -27,7 +27,7 @@ public class test {
 }
 ```
 ---
-###Kilian (Java):
+### Kilian (Java):
 ```
 import java.math.BigInteger;
 
@@ -51,7 +51,7 @@ public class bigintfak {
 }
 ```
 
-###Kilian (Kotlin):
+### Kilian (Kotlin):
 ```kotlin
 import java.math.BigInteger
 
